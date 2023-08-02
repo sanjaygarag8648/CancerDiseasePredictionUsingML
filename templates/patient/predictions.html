@@ -1,0 +1,80 @@
+{% extends 'tempbase.html' %}
+{% load static %}
+{% block main %}
+
+<section class="contact-form-wrap section" style="padding: 0px;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="section-title text-center" style="margin-bottom: 10px;">
+                    <h2 class="text-md mb-2" style="font-size: 2.5rem;">Your Prediction Report</h2>
+                    <div class="card" role="alert">
+                        <div class="header-main">
+                            {% if is_cancer %}
+                        <h4 class="table-danger text-center">You have a risk of {{ pd }} </h4>
+                             {% else %}
+                             <h4 class="table-danger text-center"> You don't have risk of Cancer </h4>
+                             {% endif %}
+                        </div>
+                        <div class="card-body">
+                              <div class="table-responsive justify-content-center">
+                                {% if is_cancer %}
+                                              {% if pd == 'Lung Cancer' %}
+                                              <p>Recommended Medical and Lab Test: <strong> X-ray of Chest to Confirm !!!</strong></p>
+                                              {% elif pd == 'Blood Cancer' %}
+                                              <p>Recommended Medical and Lab Test:<strong> Test of biopsy of Bone-Marrow</strong></p>
+                                              {% elif pd == 'Stomach Cancer' %}
+                                              <p>Recommended Medical and Lab Test:<strong> Test Endoscopy of Stomach</strong></p>
+                                              {% endif %}
+
+                                              {% else %}
+                                    
+                             {% endif %}
+                             <p>For More Accurate assessment Consult Doctor <b>--> </b><a href="{% url 'doctor' %}"><strong>For Doctor Apppointment </strong></a></p>
+                                    <p>For more Information about the Cancer<a href="{% url 'diseaseindex' %}"> <strong> Click Here</strong></a></p>
+                             
+                                    <div class="card-body">
+                                        {% if is_cancer %}
+                                        <div class="table-responsive justify-content-center">
+                                                         <table class="table">
+                                                             <thead>
+                                                                 <tr>
+                                                                     <th>Algorithm</th>
+                                                                     <th>Risk of Cancer Disease</th>
+                                                                 </tr>
+                                                             </thead>
+                                                             <tbody>
+                                                                 <tr class="{{colors.KNearestNeighbours}}">
+                                                                     <td>KNN Classifier</td>
+                                                                     <td>{{predictions.KNearestNeighbours}}</td>
+                                                                 </tr>
+                                                                 <tr class={{colors.SVMClassifier}}>
+                                                                     <td>Support Vector Classifier</td>
+                                                                     <td>{{predictions.SVMClassifier}}</td>
+                                                                 </tr>
+                                                                 <tr class={{colors.KMeansClassifier}}>
+                                                                     <td>KMeansClassifier</td>
+                                                                     <td>{{predictions.KMeansClassifier}}</td>
+                                                                 </tr>
+                                                                 <tr class={{colors.DT}}>
+                                                                     <td>Decision Tree</td>
+                                                                     <td>{{predictions.DecisionTree}}</td>
+                                                                 </tr>
+                                                                  <tr class={{colors.RandomForestClassifier}}>
+                                                                     <td>RandomForestClassifier</td>
+                                                                     <td>{{predictions.RandomForestClassifier}}</td>
+                                                                 </tr>
+                                                             </tbody>
+                                                         </table>
+                                                         {% endif %}
+                                                     </div>
+                                                 </div>
+                                     </div>                  
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+	
+
+
+<section class="contact-form-wrap section" style="padding: 0px;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section-title text-center" style="margin-bottom: 10px;">
+                    <h2 class="text-md mb-2" style="font-size: 1.8rem;">Doctor Profile</h2>
+                    
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <form method="POST" class="register-form" id="register-form" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input name="first_name" value="{{user.first_name}}" id="first_name" placeholder="Dr. first_name" class="form-control" pattern="[a-zA-z][a-zA-Z]+[a-zA-Z]*" title="Only Alphabets allowed" required>
+                            </div>
+                        </div>
+                       
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input name="last_name" value="{{user.last_name}}" id="last_name" placeholder="last_name" class="form-control" pattern="[a-zA-z][a-zA-Z]+[a-zA-Z]*" title="Only Alphabets allowed" required>
+                            </div>
+                        </div>
+                       
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input name="email" id="email" value="{{user.email}}" placeholder="email" class="form-control" pattern="[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]*" title="Email" required readonly>
+                            </div>
+                        </div>
+                       
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input type="text" name="address" value="{{user.doctor.address}}" id="address" placeholder="Hospital-address" class="form-control" title="only numbers and alphabets allowed" required>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input type="text" name="city" value="{{user.doctor.city}}" id="city" placeholder="city" class="form-control" pattern="[a-zA-z][a-zA-Z]+[a-zA-Z]*" title="Only Alphabets allowed" required>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select type="text" value="{{user.doctor.gender}}" name="gender" id="gender" class="form-control" required>
+                                    <option value="">Select Gender</option>
+                                    
+                                    <option value="male" {% if user.doctor.gender == 'male' %} selected {% endif %} >Male</option>
+                                    
+                                    <option value="female" {% if user.doctor.gender == 'female' %} selected {% endif %}>female</option>
+                                    
+                                    </select>
+                            </div>
+                        </div>
+                          
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input type="text" name="mobile" value="{{user.doctor.mobile}}" id="mobile" placeholder="mobile" class="form-control" pattern="[5-9][0-9]{9}" title="Only Numbers allowed" required >
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select type="text" value="{{user.doctor.specialization}}" name="specialization" id="specialization" class="form-control" required>
+                                    <option value="">Doctor-Specialization </option>
+                                    
+                                    <option value="gastroenterologist" {% if user.doctor.specialization == 'gastroenterologist' %} selected {% endif %}>gastroenterologist</option>
+                                    
+                                    <option value="Hematologist-oncologist" {% if user.doctor.specialization == 'Hematologist-oncologist' %} selected {% endif %}>Hematologist-oncologist</option>
+                                    
+                                    <option value="Thoracic-oncologists" {% if user.doctor.specialization == 'Thoracic-oncologists' %} selected {% endif %} >Thoracic-oncologistst</option>
+                                    </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <img src="/media/{{user.doctor.photo}}" width="100"/>
+                                <input type="file"   name="photo" id="photo" placeholder="Profile photo" class="form-control"  title="Photos are allowed">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input type="text" value="{{user.doctor.medicalregno}}"  name="medicalregno" id="medicalregno" placeholder="Medical-Reg-Number" class="form-control" pattern="[a-zA-Z0-9][a-zA-Z0-9]*" title="Charecter and Numbers allowed" required >
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <textarea name="academicinfo" id="academicinfo" class="form-control" rows="8" placeholder="About-Me">{{user.doctor.academicinfo}}</textarea>
+                        </div><br>
+                       
+                        <div class="col-lg-12 text-center" >
+                            <input class="btn btn-main btn-round-full" name="submit" style="width: fit-content;" type="submit" value="Update">
+                        </div>
+                         
+                    </div>
+                        
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}

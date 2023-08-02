@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+	
+<section class="page-title bg-1" >
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block text-center">
+          <span class="text-white">Doctor Details</span>
+          <h1 class="text-capitalize mb-5 text-lg">Dr. {{doctor.user.first_name}} {{doctor.user.last_name}}</h1>
+
+          <!-- <ul class="list-inline breadcumb-nav">
+            <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+            <li class="list-inline-item"><span class="text-white">/</span></li>
+            <li class="list-inline-item"><a href="#" class="text-white-50">Doctor Details</a></li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section doctor-single">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 col-md-6">
+				<div class="doctor-img-block">
+					<img src="/media/{{ doctor.photo}}" alt="" class="img-fluid w-100">
+
+					<div class="info-block mt-4">
+						<h4 class="mb-0">Dr. {{doctor.user.first_name}} {{doctor.user.last_name}}</h4>
+						<p>{{doctor.specialization}}<br>
+						{{doctor.medicalregno}}</p>
+
+						<!-- <ul class="list-inline mt-4 doctor-social-links">
+							<li class="list-inline-item"><a href="#"><i class="icofont-facebook"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="icofont-twitter"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="icofont-skype"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="icofont-linkedin"></i></a></li>
+							<li class="list-inline-item"><a href="#"><i class="icofont-pinterest"></i></a></li>
+						</ul> -->
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-8 col-md-6">
+				<div class="doctor-details mt-4 mt-lg-0">
+					<h2 class="text-md">Introducing to myself</h2>
+					<div class="divider my-4"></div>
+					<p>{{doctor.academicinfo}}</p>
+
+					<a href="{% url 'appoinment' doctor.id %}" class="btn btn-main-2 btn-round-full mt-3">Make an Appoinment<i class="icofont-simple-right ml-2  "></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+{% endblock %}
+
+

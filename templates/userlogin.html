@@ -1,0 +1,70 @@
+{% extends 'loginbase.html' %}
+{% load static %}
+{% block main %}
+<hr>
+
+<section class="contact-form-wrap section" style="padding: 0px;">
+   
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section-title text-center" style="margin-bottom: 10px;">
+                    
+                    
+            </div>
+        </div>
+        <div class="row" style="font-size: 25px;">
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <img src="/static/images/login-image.jpg"/>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                
+                <i class="icofont-sign-in"></i>
+                
+                <h2 class="text-md mb-2" style="font-size: 1.8rem;" >Patient Login </h2>
+                
+  
+                <form method="POST" class="register-form" id="register-form">
+                    {% csrf_token %}
+                    <div class="row">
+
+                
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <div class="input-icons">
+                                <i class="icofont-email icon"></i>
+                                <input name="username" id="your_name" name="username" autocomplete="off" type="text" class="form-control input-field" placeholder="Email Address"  required />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <div class="input-icons">
+                                <i class="icofont-lock icon"></i>
+                                <input name="password" id="password" name="password" autocomplete="off" type="password" toggle class="form-control input-field" placeholder="Password"  required/>
+                                <i class="icofont-eye eicon toggle-password"></i>    
+                            </div>
+                               
+                            </div>
+                        </div>
+                         
+                      <div class="col-lg-12">
+                        <input class="btn btn-main btn-round-full" style="width: fit-content;" name="submit" type="submit" value="Log-in"/>
+                       </div>
+                       
+                       <div class="col-lg-12" style="margin-top: 10px;"><a href="{% url 'userregister' %}" class="signup-image-link float-left" ><b>Create an Patient- account</b></a> </div>
+                      
+                       <div class="col-lg-12" style="margin-top: 10px;"><a href="{% url 'password_reset' %}" class="signup-image-link float-left"><b>Forgot Password...?</b></a></div>
+                     </div>
+                </form>
+            </form>
+        </div>
+    </div>
+</div>
+</section>
+
+
+
+
+{% endblock %}

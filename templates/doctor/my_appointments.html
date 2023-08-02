@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+
+
+<section class="page-title bg-1">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block text-center">
+          <span class="text-white">My</span>
+          <h1 class="text-capitalize mb-5 text-lg">Appointments</h1>
+
+          <!-- <ul class="list-inline breadcumb-nav">
+            <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+            <li class="list-inline-item"><span class="text-white">/</span></li>
+            <li class="list-inline-item"><a href="#" class="text-white-50">Book your Seat</a></li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="appointment section">
+  <div class="container" style="max-width: 1250px;">
+    <div class="row">
+      <div class="col-lg-12">
+        <table class="table table-stripped table-bordered">
+            <thead style="text-align: center;">
+                <tr>
+                    <th>Sl no</th>
+                    <th>Patient</th>
+                    <th>Appointment Date</th>
+                    <th>Appointment Time</th>
+                    <th>Message</th>
+                    <th>Action-1</th>
+                    <th>Action-2</th>
+                    <th>Action-3</th>
+                </tr>
+            </thead>
+            <tbody style="text-align: center;">
+                {% for appointment in appointments %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{appointment.patient.user.first_name}} {{appointment.patient.user.last_name}}</td>
+                    <td>{{appointment.appointment_date}}</td>
+                    <td>{{appointment.appointment_time}}</td>
+                    <td>{{appointment.patient_message}}</td>
+                    <td><a class="btn btn-success" href="{% url 'update_appointment' appointment.id 'Accepted' %}" onclick="return confirm('Are you sure you want to accept this appointment?')">Accept</a></td>
+                    
+                    <td><a class="btn btn-primary" href="{% url 'rescheduled_appointments' appointment.id %}" onclick="return confirm('Are you sure you want to reschedule this appointmen?')">Reschedule</a></td>
+                    <td><a class="btn btn-danger" onclick="return confirm('Are you sure you want to reject this appointment?')" href="{% url 'update_appointment' appointment.id 'Rejected' %}">Reject</a></td>
+                  </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+      </div>
+
+          </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+

@@ -1,0 +1,240 @@
+{% extends 'loginbase.html' %}
+{% load static %}
+{% block main %}
+<style type="text/css">
+    .error{
+        font-size: 16px;
+    color: red;
+    }
+</style>
+
+<script type="text/javascript">
+    function validateForm(){
+        
+        console.log('test');
+        var password = document.getElementById("password");
+        var Confirm_Password = document.getElementById("Confirm_password");
+         var pwd_text = password.value;
+        var cpwd_text = Confirm_Password.value;
+        if(pwd_text == cpwd_text){
+            document.getElementById('confirm_password_error').innerHTML="";
+            return true;
+        }
+        else{
+            console.log("Password Mismatch");
+            //alert("Password Mismatch");
+            document.getElementById('confirm_password_error').innerHTML="Passwords do not match";
+            password.value = '';
+            Confirm_Password.value = '';
+            return false;
+        }
+    }   
+</script>	
+	
+
+
+<section class="contact-form-wrap section" style="padding: 0px;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section-title text-center" style="margin-bottom: 10px;">
+                    <h2 class="text-md mb-2" style="font-size: 1.8rem;">Doctor-Registration Form</h2>
+                    
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                {% if user_form.errors %}
+        {% for field in user_form %}
+        {% for error in field.errors %}
+            <p> {{ errors }} </p>
+        {% endfor %}
+        {% endfor %}
+        {% for error in user_form.non_field_errors %}
+        <p> {{ error }} </p>
+        {% endfor %}
+    {% endif %}
+
+    {% if doctor_form.errors %}
+    {% for field in doctor_form %}
+    {% for error in field.errors %}
+        <p> {{ errors }} </p>
+    {% endfor %}
+    {% endfor %}
+    {% for error in doctor_form.non_field_errors %}
+    <p> {{ error }} </p>
+    {% endfor %}
+{% endif %}
+            
+                <form method="POST" class="register-form" id="register-form" style="margin-bottom: 20px;" enctype="multipart/form-data" onsubmit="return validateForm();">
+                    {% csrf_token %}
+                            
+                 
+                    <div class="row" style="font-size: 20px;">
+                        
+                      
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <div class="input-icons">
+                                    <i class="icofont-doctor icon"></i>
+                                <input name="first_name" id="first_name" autocomplete="off" placeholder="First-name" class="form-control input-field" pattern="[A-Z][a-zA-Z]+[a-zA-Z]*" title="Only Alphabets allowed first letter should be UpperCases" required>
+                            </div>
+                            </div>
+                        </div>
+                       
+                        
+                      
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <div class="input-icons">
+                                    <i class="icofont-doctor icon"></i>
+                                <input name="last_name" id="last_name" placeholder="Last-name" autocomplete="off" class="form-control input-field" pattern="[A-Z][a-zA-Z]+[a-zA-Z]*" title="Only Alphabets allowed first letter should be UpperCases" required>
+                            </div>
+                            </div>
+                        </div>
+                       
+                        
+                      
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <div class="input-icons">
+                                    <i class="icofont-email icon"></i>
+                                <input name="email" id="email" placeholder="Email-Address" autocomplete="off" class="form-control input-field" pattern="[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]*" title="Email" required>
+                            </div>
+                            </div>
+                        </div>
+                       
+                        
+                        
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <div class="input-icons">
+                                    <i class="icofont-hospital icon"></i>
+                                <input type="text" name="address" id="address" autocomplete="off" placeholder="Address" class="form-control input-field" title="only numbers and alphabets allowed" required>
+                            </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <div class="input-icons">
+                                    <i class="icofont-location-pin icon"></i>
+                                <input type="text" name="city" id="city" placeholder="City" class="form-control input-field" pattern="[A-Z][a-zA-Z]+[a-zA-Z]*" title="Only Alphabets allowed first letter should be UpperCases" required>
+                            </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <div class="input-icons">
+                                    <i class="icofont-users-alt-4 icon"></i>
+                                <select type="text" name="gender" id="gender" autocomplete="off" class="form-control input-field" required>
+                                    <option value="">Select Gender</option>
+                                    
+                                    <option value="male">Male</option>
+                                    
+                                    <option value="female">Female</option>
+                                    
+                                    </select>
+                            </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <div class="input-icons">
+                                    <i class="icofont-smart-phone icon"></i>
+                                <input type="text" name="mobile" id="mobile" autocomplete="off" placeholder="Mobile" class="form-control input-field" pattern="[6-9][0-9]{9}" title="Only 10 digits allowed and number should starts between 6 to 9" required>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <div class="input-icons">
+                                    <i class="icofont-certificate-alt-2 icon"></i>
+                                <select type="text" name="specialization" id="specialization" autocomplete="off" class="form-control input-field" required>
+                                    <option value="">Doctor-Specialization </option>
+                                    
+                                    <option value="gastroenterologist">Gastroenterologist</option>
+                                    
+                                    <option value="Hematologist-oncologist">Hematologist-oncologist</option>
+                                    
+                                    <option value="Thoracic-oncologists">Thoracic-oncologistst</option>
+                                    </select>
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <div class="input-icons">
+                                    <i class="icofont-image icon"></i>
+                                <input type="file" name="photo" id="photo" autocomplete="off" placeholder="Profile photo" class="form-control input-field"  title="Photos are allowed" required>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <div class="input-icons">
+                                    <i class="icofont-id icon"></i>
+                                <input type="text" name="medicalregno" id="medicalregno" placeholder="Medical-Reg-Number" class="form-control input-field" pattern="[a-zA-Z0-9-]+" title="Charecter and Numbers allowed" required >
+                            </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <div class="input-icons">
+                                    <i class="icofont-lock icon"></i>
+                                <input type="password" name="password" id="password" autocomplete="off" placeholder="Password" toggle class="form-control input-field" pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}" title="a password must be eight characters including one uppercase letter, one special character and alphanumeric characters" required>
+                                <i class="icofont-eye eicon toggle-password"></i> 
+                                </div>
+                           
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <div class="input-icons">
+                                    <i class="icofont-lock icon"></i>
+                                <input type="password" name="confirn_password" autocomplete="off" id="Confirm_password" placeholder="Confirm_password" toggle class="form-control input-field" pattern="(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}" title="The Password must be same as the given password" required>
+                                <i class="icofont-eye eicon toggle-cpassword"></i>
+                                <div id="confirm_password_error" class="error"></div> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                        <div class="form-group-2 mb-4">
+                            <div class="input-icons">
+                                <i class="icofont-info-square icon"></i>
+                            <textarea name="academicinfo" id="academicinfo" autocomplete="off" class="form-control input-field" rows="8" placeholder="Tell Us More:--> Provide any other specific deatails of your yours..."></textarea>
+                        </div>
+                        </div>
+                        
+                    </div>
+                       
+                    <div class="col-lg-12 text-center">
+                        <input class="btn btn-main btn-round-full" name="submit" style="width: fit-content;" type="submit" value="Register - Now">
+                    </div>
+                     
+                </div>
+                    
+                <a href="{% url 'doctorlogin' %}" class="signup-image-link">Already registered? <strong>Go to Login  -> </strong><i class="icofont-users-alt-4"></i></a>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}

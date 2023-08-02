@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+	
+
+
+<section class="contact-form-wrap section" style="padding: 0px;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section-title text-center" style="margin-bottom: 10px;">
+                    <h2 class="text-md mb-2" style="font-size: 1.8rem;">Profile</h2>
+                    
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <form method="POST" class="register-form" id="register-form">
+                    {% csrf_token %}
+                            
+                 
+                    <div class="row">
+                        
+                      
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input name="first_name" value="{{user.first_name}}" id="first_name" autocomplete="off" placeholder="first_name" class="form-control" pattern="[A-z][a-zA-Z]+[a-zA-Z]*" title="Only Alphabets allowed" required>
+                            </div>
+                        </div>
+                       
+                        
+                      
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input name="last_name" value="{{user.last_name}}" id="last_name" autocomplete="off" placeholder="last_name" class="form-control" pattern="[a-zA-z][a-zA-Z]+[a-zA-Z]*" title="Only Alphabets allowed" required>
+                            </div>
+                        </div>
+                       
+                        
+                      
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input name="email" id="email" value="{{user.email}}" autocomplete="off" placeholder="email" class="form-control" pattern="[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]*" title="Email" required readonly>
+                            </div>
+                        </div>
+                       
+                        
+                        
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input type="text" name="address" value="{{user.patient.address}}" autocomplete="off" id="address" placeholder="address" class="form-control" title="only numbers and alphabets allowed" required>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input type="text" name="city" value="{{user.patient.city}}" autocomplete="off" id="city" placeholder="city" class="form-control" pattern="[a-zA-z][a-zA-Z]+[a-zA-Z]*" title="Only Alphabets allowed" required>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select type="text" value="{{user.patient.gender}}" name="gender" autocomplete="off" id="gender" class="form-control" required>
+                                    <option value="">Select Gender</option>
+                                    
+                                    <option value="male" {% if user.patient.gender == 'male' %} selected {% endif %} >Male</option>
+                                    
+                                    <option value="female" {% if user.patient.gender == 'female' %} selected {% endif %}>Female</option>
+                                    
+                                    </select>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input type="text" value="{{user.patient.age}}" name="age" id="age" autocomplete="off"placeholder="age" class="form-control" pattern="[0-9]*" title="Only Numbers allowed" required>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input type="text" name="mobile" value="{{user.patient.mobile}}" id="mobile" autocomplete="off" placeholder="mobile" class="form-control" pattern="[5-9][0-9]{9}" title="Only Numbers allowed" required >
+                            </div>
+                        </div>
+
+
+                    
+                        
+                        
+                       
+                        <div class="col-lg-12 text-center">
+                            <input class="btn btn-main btn-round-full" name="submit" style="width: fit-content;" type="submit" value="Update">
+                        </div>
+                         
+                    </div>
+                        
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}

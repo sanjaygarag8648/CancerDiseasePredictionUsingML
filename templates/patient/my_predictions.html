@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+
+
+<section class="page-title bg-1" style="padding: 40px;">
+  <div class="overlay" ></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block text-center">
+          <span class="text-white">My</span>
+          <h1 class="text-capitalize mb-5 text-lg">Predictions</h1>
+
+          <!-- <ul class="list-inline breadcumb-nav">
+            <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+            <li class="list-inline-item"><span class="text-white">/</span></li>
+            <li class="list-inline-item"><a href="#" class="text-white-50">Book your Seat</a></li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="appointment section" style="padding: 20px;">
+  <div class="container" style="margin-left: 15px; margin-right: 30px; max-width: 1300px;">
+    <div class="row">
+      <div class="col-lg-12" style="align-content: center;">
+        <table class="table table-stripped table-bordered">
+            <thead style="text-align: center;">
+                <tr>
+                    <th>Sl.no</th>
+                    <th>Prediction Date</th>
+                    <th>Action</th>
+                    
+                    
+                </tr>
+            </thead>
+            <tbody style="text-align: center;">
+                {% for prediction in predictions %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                   
+                    <td>{{prediction.predicted_on}}</td>
+                    
+                    <td><a href="{% url 'prediction_view' prediction.id %}" class="btn btn-primary">View</a></td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+      </div>
+
+          </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+

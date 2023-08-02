@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+	
+<section class="page-title bg-1" style="padding: 50px;">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block text-center">
+          <span class="text-white">About Us</span>
+          <h1 class="text-capitalize mb-5 text-lg">About Us</h1>
+
+          <!-- <ul class="list-inline breadcumb-nav">
+            <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+            <li class="list-inline-item"><span class="text-white">/</span></li>
+            <li class="list-inline-item"><a href="#" class="text-white-50">About Us</a></li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section about-page">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4">
+				<h2 class="title-color">About Cancer Disease Prediction</h2>
+			</div>
+			<div class="col-lg-8">
+				<p>Welcome to Cancer Disease Prediction!, a Prediction system for medical institutions to generate prediction for their patients. Cancer Disease Prediction started off as a company that formed strong relationships with medical institutions to help them generate their prediction with ease and maximum efficiency thus saving the organization's valuable time.</p>
+				
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="fetaure-page ">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-md-6">
+				<div class="about-block-item mb-5 mb-lg-0">
+					<img src="{% static 'images/Lungcancer.jpg' %}" alt="" class="img-fluid w-100">
+					<h4 class="mt-3">Lung Cancer</h4>
+					<p>The Lungs are part of the respiratory system and The main function of the Lungs...<a href="{% url 'diseaseindex' %}" class="btn btn-main-2 btn-round-full mt-3">Read more<i class="icofont-simple-right   "></i></a></p>
+					
+
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="about-block-item mb-5 mb-lg-0">
+					<img src="{% static 'images/Bloodcancer4.jpg' %}" alt="" class="img-fluid  h-100" height="20px">
+					<h4 class="mt-3">Blood Cancer</h4>
+					<p>Blood Cancer is also known as haematological cancer includes leukaemia, lymphoma...<a href="{% url 'diseaseindex' %}" class="btn btn-main-2 btn-round-full mt-3">Read more<i class="icofont-simple-right"></i></a></p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="about-block-item mb-5 mb-lg-0">
+					<img src="{% static 'images/stomachcancer6.png' %}" alt="" class="img-fluid w-100" height="20px">
+					<h4 class="mt-3">Stomach Cancer</h4>
+					<p>The stomach is a hollow organ which is muscular in nature and is found in the gastrointestinal tract...<a href="{% url 'diseaseindex' %}" class="btn btn-main-2 btn-round-full mt-3">Read more<i class="icofont-simple-right"></i></a></p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="about-block-item">
+					<img src="{% static 'images/predict1.png' %}" alt="" class="img-fluid w-100">
+					<h4 class="mt-3">Predict</h4>
+					<p>Predict is an online tool that helps users to know what type of Cancer disease they are bearing...{% if user.is_authenticated%}<a href="{% url 'predict' %}" class="btn btn-main-2 btn-round-full mt-3">Predict<i class="icofont-simple-right"></i></a>{% else %} <a href="{% url 'userlogin' %}" class="btn btn-main-2 btn-round-full mt-3">Predict<i class="icofont-simple-right"></i></a>{% endif %}</p>
+				</div>.
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+
+
+<section class="page-title bg-1" style="padding: 40px;">
+  <div class="overlay" ></div>
+  <div class="container">
+    <div class="row" >
+      <div class="col-md-12" >
+        <div class="block text-center">
+          <span class="text-white">My</span>
+          <h1 class="text-capitalize mb-5 text-lg">Appointments</h1>
+
+          <!-- <ul class="list-inline breadcumb-nav">
+            <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
+            <li class="list-inline-item"><span class="text-white">/</span></li>
+            <li class="list-inline-item"><a href="#" class="text-white-50">Book your Seat</a></li>
+          </ul> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="appointment section" style="padding: 20px;">
+  <div class="container" style="margin-left: 50px; margin-right: 30px; ">
+    <div class="row">
+      <div class="col-lg-12">
+        <table class="table table-stripped table-bordered">
+            <thead style="text-align: center;">
+                <tr>
+                    <th>Sl.no</th>
+                    <th>Doctor Name</th>
+                    <th>Specialization</th>
+                    <th>Appointment Date</th>
+                    <th>Appointment Time</th>
+                    <th>Message</th>
+                    
+                </tr>
+            </thead>
+            <tbody style="text-align: center;">
+                {% for appointment in appointments %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>Dr. {{appointment.doctor.user.first_name}} {{appointment.doctor.user.last_name}}</td>
+                    <td>{{appointment.doctor.specialization}}</td>
+                    <td>{{appointment.appointment_date}}</td>
+                    <td>{{appointment.appointment_time}}</td>
+                    <td>{{appointment.patient_message}}</td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+      </div>
+
+          </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+

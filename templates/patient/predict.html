@@ -1,0 +1,322 @@
+{% extends 'tempbase.html' %}
+{% load static %}
+{% block main %}
+<section class="contact-form-wrap section" style="padding: 0px;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section-title text-center" style="margin-bottom: 10px;">
+                    <h2 class="text-md mb-2" style="font-size: 2.3rem;">Check Your Cancer Status !!!</h2><br> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12" >
+                <form method="POST" class="register-form" id="register-form" style="padding: 20px;">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input name="age"  id="age" placeholder="Age" class="form-control" min="1" type="number"  max="120" required>
+                            </div>
+                        </div>
+                       
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="gender" id="gender" class="form-control" required>
+                                    <option value="">Select Gender</option>
+                                    <option value="1">Male</option>
+                                    <option value="0">Female</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="air_polution" id="air_polution" class="form-control" required>
+                                    <option value="">Are you expose to extreme Air Polution?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="jaundice" id="jaundice" class="form-control" required>
+                                    <option value="">Are you expose to Presence of Jaundice?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="night_sweating" id="night_sweating" class="form-control" required>
+                                    <option value="">Are you expose Night Sweating?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="chronic_lung_disease" id="chronic_lung_disease" class="form-control" required>
+                                    <option value="">Do you suffer with Chronic Lung Disease?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                       
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="hoarseness" id="hoarseness" class="form-control" required>
+                                    <option value="">Do you feel Hoarseness?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="headache" id="headache" class="form-control" required>
+                                    <option value="">Do you have Headache?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="weight_loss" id="weight_loss" class="form-control" required>
+                                    <option value="">Are you have immediate and reasonless Weight Loss?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="chest_pain" id="chest_pain" class="form-control" required>
+                                    <option value="">Do you have Chest Pain?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="nose_bleeding" id="nose_bleeding" class="form-control" required>
+                                    <option value="">Do you have Nose-Bleeding?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="obesity" id="obesity" class="form-control" required>
+                                    <option value="">Are you having Obesity?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="coughing_of_blood" id="coughing_of_blood" class="form-control" required>
+                                    <option value="">Are you expose to Coughing of Blood?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="loss_of_memmory" id="loss_of_memmory" class="form-control" required>
+                                    <option value="">Are you feeling Loss of Memory?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="shortness_of_breath" id="shortness_of_breath" class="form-control" required>
+                                    <option value="">Do you feel shortness of Breath?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="red_spot_in_skin" id="red_spot_in_skin" class="form-control" required>
+                                    <option value="">Red Spot in skin?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="fever" id="fever" class="form-control" required>
+                                    <option value="">Do you feel having extreme Fever?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="vomiting" id="vomiting" class="form-control" required>
+                                    <option value="">Do you have Vomiting?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="abdomen_discomfort" id="abdomen_discomfort" class="form-control" required>
+                                    <option value="">Are you feeling Discomfort in Abdomen?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="stool_bleeding" id="stool_bleeding" class="form-control" required>
+                                    <option value="">Are you expose to Bleeding in Stools?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="dry_cough" id="dry_cough" class="form-control" required>
+                                    <option value="">Do you have Dry Cough?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="stomach_pain" id="stomach_pain" class="form-control" required>
+                                    <option value="">Do you have Stomach Pain?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="alcoholic" id="alcoholic" class="form-control" required>
+                                    <option value="">Are you Alcoholic?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="fatigue" id="fatigue" class="form-control" required>
+                                    <option value="">Are you feeling Fatigue(Extreme Tiredness)?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="dust_alergy" id="dust_alergy" class="form-control" required>
+                                    <option value="">Do you have Dust Alergy?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="balanced_diet" id="balanced_diet" class="form-control" required>
+                                    <option value="">Do you maintain Balanced Deit?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                       
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="smoking" id="smoking" class="form-control" required>
+                                    <option value="">Do you Smoke?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="wheezing" id="wheezing" class="form-control" required>
+                                    <option value="">Do you have Wheezing problem?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="Swallowing_difficulty" id="Swallowing_difficulty" class="form-control" required>
+                                    <option value="">Are you Difficulty in Swallowing?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="bleeding_easily" id="bleeding_easily" class="form-control" required>
+                                    <option value="">Bleeding Easily?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="clubbing_of_nails" id="clubbing_of_nails" class="form-control" required>
+                                    <option value="">Do you have Clubbing of Nails?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <select name="frequent_cold" id="frequent_cold" class="form-control" required>
+                                    <option value="">Are you expose to Frequent Cold?</option>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>   
+                       
+                        <div class="col-lg-12 text-center"  >
+                            <input class="btn btn-main btn-round-full"  name="submit" style="width: fit-content;" type="submit" value="Predict">
+                        </div>   
+                    </div> 
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

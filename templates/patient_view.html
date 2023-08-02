@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+<section class="section" style="padding: 25px;">
+    <div class="container" style="font-size: 13px; margin-left: 15px; margin-right: 30px; max-width: 1500px;">
+        <div class="row justify-content-center">
+            <div class="col-md-16">
+                <div class="card">
+                    <div class="card-header">
+                        <h1 class="fw-bold">Patient Profile</h1>
+                    </div>
+                    
+                        <table class="table table-bordered table-striped" style="width: 100%;">
+                            <thead style="text-align: center;">
+                                <tr>
+                                	<th>User ID</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Email</th>
+                                    <th>Address</th>
+                                    <th>City</th>
+                                    <th>Gender</th>
+                                    <th>Age</th>
+                                    <th>Mobile Number</th>
+                                    <th>Action</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                  
+                                    <tr>
+                                      <td>{{ user.id }} </td>
+                                   	  <td>{{ user.first_name }} </td>
+                                      <td>{{ user.last_name }} </td>
+                                      <td>{{ user.email }} </td>
+                                      <td>{{ user.patient.address }} </td>
+                                      <td>{{ user.patient.city }} </td>
+                                      <td>{{ user.patient.gender }} </td>
+                                      
+                                      <td>{{ user.patient.age }} </td>
+                                      <td>{{ user.patient.mobile }} </td>
+                                      
+ 
+                                     
+                                        <td>
+                                            <a href="{% url 'profile' %}" class="btn btn-primary">EDIT</a>
+                                           </td>
+                                           <!--<td>
+                                            <a href="#" class="btn btn-danger badge">Delete</a>
+                                        </td>-->
+                                    </tr>
+                           
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

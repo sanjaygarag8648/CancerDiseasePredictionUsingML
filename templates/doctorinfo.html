@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+<section class="section" style="padding: 25px;">
+    <div class="container" style="font-size: 10px; margin-left: 15px; margin-right: 30px; max-width: 1300px;">
+        <div class="row justify-content-center">
+            <div class="col-md-16">
+                <div class="card">
+                    <div class="card-header" style="text-align: center;">
+                        <h1 class="fw-bold">Doctor Profile</h1>
+                    </div>
+                    
+                        <table class="table table-bordered table-striped" style="width: 100%;">
+                            <thead style="text-align: center;">
+                                <tr>
+                                	<th>Doctor ID</th>
+                                    <th>Name</th> 
+                                    <th>Email</th>
+                                    <th>Address</th>
+                                    <th>Mobile Number</th>
+                                    <th>Specialization</th>
+                                    <th>About Me</th>
+                                    <th>Photo</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for doc in doctor %}
+                  
+                                    <tr>
+                                      <td>{{ doc.user.id }} </td>
+                                   	  <td>{{ doc.user.first_name }} {{ doc.user.last_name }}  </td>
+                                      <td>{{ doc.user.email }} </td>
+                                      <td>{{ doc.user.doctor.address }} {{ doc.user.doctor.city }}</td>
+                                      <td>{{ doc.user.doctor.mobile }} </td>
+                                      <td>{{ doc.user.doctor.specialization }} {{ doc.user.doctor.medicalregno }}</td>
+                                      <td>{{ doc.user.doctor.academicinfo }} </td> 
+                                            <td>
+                                              {% if doc.user.doctor.photo %} 
+                                    <img src="/media/{{doc.user.doctor.photo}} " alt="image here" width="70">
+                               {% endif %}
+
+
+                                            </td>
+                                      
+                                           
+                                     
+                                        <td>
+                                            <a href="{% url 'doctordeleteinfo' doc.id %}" class="btn btn-danger" onclick="return confirm('Are your sure want to delete this Doctor...?')">Delete</a>
+                                           </td>
+                                           <!--<td>
+                                            <a href="#" class="btn btn-danger badge">Delete</a>
+                                        </td>-->
+                                    </tr>
+                                    {% endfor %}
+                           
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
