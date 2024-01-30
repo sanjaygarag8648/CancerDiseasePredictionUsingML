@@ -10,19 +10,27 @@ This project aims to develop a web application for predicting the likelihood of 
 ## Installation
 
 1. Clone the repository:
+   
    ```bash
    git clone https://github.com/your-username/cancer-disease-prediction.git
 
-2. Navigate to the project directory:
+3. Navigate to the project directory:
+   
    cd cancer-disease-prediction
 
-3. Install the required dependencies:
+5. Install the required dependencies:
+   
    pip install -r requirements.txt
-4. Run migrations:
+   
+7. Run migrations:
+   
    python manage.py migrate
-5. Start the development server:
+   
+9. Start the development server:
+    
    python manage.py runserver
-6. Access the application at http://localhost:8000.
+   
+11. Access the application at http://localhost:8000.
 
 # Usage
 Visit the home page 
