@@ -26,8 +26,13 @@ This project aims to develop a web application for predicting the likelihood of 
 
 # Usage
 Visit the home page 
+
     1. Then Register as User and Login into the Website.
+    
     2. Input the required features for cancer prediction.
+    
     3. Click on the 'Predict' button to see the predicted likelihood of cancer.
+    
     4. If you want to take appiontment from the Doctor then click on Doctor Appointment and select the choice of your Doctor.
+    
 
