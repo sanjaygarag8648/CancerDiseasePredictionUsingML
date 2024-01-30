@@ -7,6 +7,8 @@ This project aims to develop a web application for predicting the likelihood of 
 - Prediction of cancer likelihood based on input features.
 - User-friendly web interface for inputting data and viewing predictions.
 
+The "Getting Started" section provides step-by-step instructions for someone who wants to set up and run your Django app locally. It covers cloning the repository, installing dependencies, configuring the database settings, running migrations, and starting the development server.
+
 ## Installation
 
 1. Clone the repository:
